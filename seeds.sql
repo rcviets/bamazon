@@ -33,4 +33,19 @@ VALUES ('Avengers: Endgame', 'Movies', 19.99, 50);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ('Resident Evil 2', 'Video Games', 59.99, 35);
 
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ('Book of Eli', 'Movies', 12.99, 27);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUE ("Cat's Cradle", 'Books', 9.99, 17);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUE ('Gundam Suit Unicorn Model', 'Toys', 89.99, 20);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUE ('God of War 4', 'Video Games', 39.99, 10);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUE ('LG 50" Smart TV', 'Electronics', 599.99, 4);
+
 SELECT * FROM products;

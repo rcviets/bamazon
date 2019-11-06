@@ -31,10 +31,22 @@ function readProducts() {
         let productArr = [];
 
         for (let i = 0; i < res.length; i++) {
-            productArr.push(res[i].item_id + ' | ' + res[i].product_name + ' | ' + 'Department: ' +
-                res[i].department_name + ' | ' + 'Price: ' + res[i].price + ' | ' + 'Quantity: ' + res[i].stock_quantity);
+            productArr.push(res[i].item_id + ' | ' + res[i].product_name + ' | ' + 'Price: ' + 
+                res[i].price + ' | ' + 'Quantity: ' + res[i].stock_quantity);
         }
         console.log(productArr);
-        console.log('++++++++++++++++++++++++++++++');
+        console.log('+++++++++++++++++++++++++++++');
+        inquirer.prompt([
+            {   
+                type: 'input',
+                name:'item_id',
+                message: "What is the ID # of the product you would like to purchase?"
+            },
+            {
+                type: 'input',
+                name: 'purchase_quantity',
+                message: 'How many would you like to purchase?'
+            }
+        ])
     });
 }

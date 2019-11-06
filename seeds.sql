@@ -37,7 +37,7 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ('Book of Eli', 'Movies', 12.99, 27);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUE ("Cat's Cradle", 'Books', 9.99, 17);
+VALUE ("Cats Cradle", 'Books', 9.99, 17);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUE ('Gundam Suit Unicorn Model', 'Toys', 89.99, 20);

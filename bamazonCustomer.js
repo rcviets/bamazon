@@ -1,3 +1,10 @@
+// Global Variables
+
+let idArr = [];
+let productArr = [];
+let priceArr = [];
+let quantityArr = [];
+
 // NPM Packages
 
 let inquirer = require('inquirer');
@@ -19,7 +26,6 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log('Connected to Bamazon');
     readProducts();
-    connection.end();
 });
 
 // Read the Products Table
@@ -28,10 +34,7 @@ function readProducts() {
     connection.query('SELECT * FROM products', function (err, res) {
         if (err) throw err;
 
-        let idArr = [];
-        let productArr = [];
-        let priceArr = [];
-        let quantityArr = [];
+        // Return Products in Individual Arrays
 
         for (let i = 0; i < res.length; i++) {
             if (res[i].stock_quantity > 0) {
@@ -54,6 +57,8 @@ function readProducts() {
     });
 }
 
+// Prompt the Customer to Purchase a Product
+
 function purchaseProduct() {
     inquirer.prompt([
         {
@@ -66,15 +71,35 @@ function purchaseProduct() {
             name: 'butQTY',
             message: 'How many would you like to purchase?'
         }
+
+    // Check and Update Quantity of Product Stock
+
     ]).then(function (answer) {
 
-        for (let i = 0; i < productArr.length; i++) {
-            if (answer.buyID == productArr[i]) {
+        for (let i = 0; i < idArr.length; i++) {
+            if (answer.buyID == idArr[i]) {
 
                 if (answer.buyQTY > quantityArr[i]) {
                     console.log('Insufficient Quantity!');
+                } else {
+                    let newQTY = quantityArr[i] - answer.buyQTY;
+                    connection.query('UPDATE products SET ? WHERE ?',
+                        [{
+                            stock_quantity: newQTY
+                        },
+                        {
+                            item_id: idArr[i]
+                        }],
+
+                        function (err, res) {
+                            if (err) throw err;
+                        }
+                    )
+
+                    console.log('Thank you! The total amount of your purchase was $' + (priceArr[i] * answer.buyQTY).toFixed(2));
+                    connection.end();
                 }
-            }        
+            }
         }
     })
 }

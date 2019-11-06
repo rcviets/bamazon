@@ -27,10 +27,14 @@ connection.connect(function(err) {
 function readProducts() {
     connection.query('SELECT * FROM products', function(err, res) {
         if (err) throw err;
+        
+        let productArr = [];
+
         for (let i = 0; i < res.length; i++) {
-            console.log(res[i].item_id + ' | ' + res[i].product_name + ' | ' +
-                res[i].department_name + ' | ' + res[i].price + ' | ' + res[i].stock_quantity);
+            productArr.push(res[i].item_id + ' | ' + res[i].product_name + ' | ' + 'Department: ' +
+                res[i].department_name + ' | ' + 'Price: ' + res[i].price + ' | ' + 'Quantity: ' + res[i].stock_quantity);
         }
+        console.log(productArr);
         console.log('++++++++++++++++++++++++++++++');
     });
 }

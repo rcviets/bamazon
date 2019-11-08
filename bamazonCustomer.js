@@ -81,6 +81,7 @@ function purchaseProduct() {
 
                 if (answer.buyQTY > quantityArr[i]) {
                     console.log('Insufficient Quantity!');
+                    connection.end();
                 } else {
                     let newQTY = quantityArr[i] - answer.buyQTY;
                     connection.query('UPDATE products SET ? WHERE ?',

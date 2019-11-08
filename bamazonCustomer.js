@@ -62,13 +62,13 @@ function readProducts() {
 function purchaseProduct() {
     inquirer.prompt([
         {
-            type: 'input',
+            type: 'number',
             name: 'buyID',
             message: "What is the ID # of the product you would like to purchase?"
         },
         {
-            type: 'input',
-            name: 'butQTY',
+            type: 'number',
+            name: 'buyQTY',
             message: 'How many would you like to purchase?'
         }
 

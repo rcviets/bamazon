@@ -13,7 +13,7 @@
 
 ## Use CLI to Run Program
 
-*Search Products*
+*Search Products*\
 node bamazonCustomer.js
 
 ![Image of Product List](runCLI.PNG)
@@ -22,7 +22,7 @@ node bamazonCustomer.js
 
 ![Image of Original Quantities](origQTY.PNG)
 
-*Make a Purchase*
+*Make a Purchase*\
 Input Desired Product & Quantity in Command Line
 
 ![Image of Purchase](makeBuy.PNG)
